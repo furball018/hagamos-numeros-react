@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import FlipMove from 'react-flip-move';
 
-class QuienPago extends React.Component {
+class QuienPago extends Component {
     render() {
+        const payPeopleList = this.props.payPeople.map((person) =>
+            <li className="list-group-item pt-1 pb-1" key={person.key}>
+                <div className="row">
+                    <div className="col-4 pl-2 pr-2">
+                        <p className="mb-0">{person.name}</p>
+                    </div>
+                    <div className="col-4 pl-2 pr-2">
+                        <span className="type-tag pl-2 pr-2 align-middle mb-0">{person.type}</span>
+                    </div>
+                    <div className="col-3 pl-2 pr-2">
+                        <p className="currency currency-positive text-right mb-0">${person.payed}</p>
+                    </div>
+                    <div className="col-1 pr-0 pl-0">
+                        <i className="material-icons mt-1 i-btn">remove_circle_outline</i>
+                    </div>
+                </div>
+            </li>
+        );
+
+        const total = this.props.payPeople.reduce((a, b) => a + b.payed, 0);
+
         return(
             <div className="container quien-pago">
                 <h2 className="text-center mt-4">Quién pagó?</h2>
@@ -14,27 +36,19 @@ class QuienPago extends React.Component {
                             <div className="col-1 pl-2 pr-2"></div>
                         </div>
                         <ul className="list-group">
-                            <li className="list-group-item pt-1 pb-1">
-                                <div className="row">
-                                    <div className="col-4 pl-2 pr-2">
-                                        <input type="text" placeholder="Nombre..." />
-                                    </div>
-                                    <div className="col-4 pl-2 pr-2">
-                                        <input type="text" placeholder="Tipo..." className="type-input pl-2 pr-2 align-middle" />
-                                    </div>
-                                    <div className="col-3 pl-2 pr-2">
-                                        <input type="number" min="0" className="currency currency-positive text-right" placeholder="$..."/>
-                                    </div>
-                                    <div className="col-1 pr-0 pl-0">
-                                        <i className="material-icons mt-1 i-btn">remove_circle_outline</i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="list-group-item text-right pt-1 pb-1">Total <span className="currency currency-total ml-2">$100</span></li>
+                        <FlipMove
+                        duration={300}
+                        easing="ease-in-out"
+                        delay={250}
+                        enterAnimation='fade'
+                        staggerDurationBy={100}>
+                            {payPeopleList}
+                            <li className="list-group-item text-right pt-1 pb-1" key={0}>Total <span className="currency currency-total ml-2">${total}</span></li>
+                        </FlipMove>
                         </ul>
                         <div className="row">
                             <div className="col">
-                                <button className="btn btn-primary mt-2">
+                                <button className="btn btn-primary mt-2" data-toggle="modal" data-target="#AddPayPerson">
                                     <i className="material-icons align-middle">add_circle_outline</i>
                                     Agregar
                                 </button>
