@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import FlipMove from 'react-flip-move';
 
 class QuienPago extends Component {
+    constructor(props){
+        super(props);
+        this.delete = this.delete.bind(this);
+    }
+
+    delete(k){
+        this.props.onRemovePayPerson(k);
+    }
+
     render() {
+
         const payPeopleList = this.props.payPeople.map((person) =>
             <li className="list-group-item pt-1 pb-1" key={person.key}>
                 <div className="row">
@@ -16,7 +26,7 @@ class QuienPago extends Component {
                         <p className="currency currency-positive text-right mb-0">${person.payed}</p>
                     </div>
                     <div className="col-1 pr-0 pl-0">
-                        <i className="material-icons mt-1 i-btn">remove_circle_outline</i>
+                        <i className="material-icons mt-1 i-btn" onClick={() => this.delete(person.key)}>remove_circle_outline</i>
                     </div>
                 </div>
             </li>
@@ -39,7 +49,7 @@ class QuienPago extends Component {
                         <FlipMove
                         duration={300}
                         easing="ease-in-out"
-                        delay={250}
+                        delay={100}
                         enterAnimation='fade'
                         staggerDurationBy={100}>
                             {payPeopleList}
