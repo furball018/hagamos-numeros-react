@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FlipMove from 'react-flip-move';
+import ScrollRocker from './ScrollRocker';
 
 class QuienPago extends Component {
     constructor(props){
@@ -35,8 +36,9 @@ class QuienPago extends Component {
         const total = this.props.payPeople.reduce((a, b) => a + b.payed, 0);
 
         return(
-            <div className="container quien-pago">
-                <h2 className="text-center mt-4">Quién pagó?</h2>
+            <div className="container quien-pago app-section">
+                <ScrollRocker upAnchor={this.props.upAnchor} downAnchor={this.props.downAnchor}/>
+                <h2 className="mt-4">Quién pagó?</h2>
                 <div className="row">
                     <div className="col">
                         <div className="row pr-4 pl-4 list-titles">

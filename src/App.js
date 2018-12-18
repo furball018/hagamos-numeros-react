@@ -10,10 +10,15 @@ import QuienesEstan from './components/QuienesEstan';
 class App extends Component {
   constructor(props){
     super(props);
+
     this.state ={
       payPeople: [],
       noPayPeople: []
     }
+
+    this.titleRef = React.createRef();
+    this.quienPagoRef = React.createRef();
+    this.quienesEstanRef = React.createRef();
 
     this.handleAddPayPerson = this.handleAddPayPerson.bind(this);
     this.handleRemovePayPerson = this.handleRemovePayPerson.bind(this);
@@ -36,13 +41,27 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Title />
+        <div ref={this.titleRef}></div>
+        <Title
+        downAnchor={this.quienPagoRef}
+        />
       
-        <QuienPago payPeople={this.state.payPeople} onRemovePayPerson={this.handleRemovePayPerson}/>
+        <div ref={this.quienPagoRef}></div>
+        <QuienPago
+        payPeople={this.state.payPeople}
+        onRemovePayPerson={this.handleRemovePayPerson}
+        upAnchor={this.titleRef}
+        downAnchor={this.quienesEstanRef}
+        />
 
-        <QuienPagoAddModal onAddPayPerson={this.handleAddPayPerson}/>
+        <QuienPagoAddModal
+        onAddPayPerson={this.handleAddPayPerson}
+        />
       
-        <QuienesEstan />
+        <div ref={this.quienesEstanRef}></div>
+        <QuienesEstan
+        upAnchor={this.quienPagoRef}
+        />
 
       </div>
     );

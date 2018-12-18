@@ -68,18 +68,16 @@ option{
 .quien-pago-list-move {
     transition: transform 0.5s;
 }
-
 html, body{
     font-family: regulator-nova, sans-serif;
     color: white;
     background-color: #273c75;
     padding-bottom: 30px;
+    scroll-behavior: smooth;
 }
-
 .currency{
     font-weight: 700;
 }
-
 .i-btn{
     cursor: pointer;
     color: #2f487f !important;
@@ -87,28 +85,22 @@ html, body{
 i-btn:hover{
     color: #6181c7 !important;
 }
-
 .currency-positive{
     color: #0088ff;
 }
-
 .currency-negative{
     color: #ff7b3f;
 }
-
 .currency-total{
     color: #47d400;
 }
-
 .title-bar{
     background-color: #192a56 !important;
 }
-
 .list-titles{
     color: #192a56;
     font-weight: 700;
 }
-
 .type-toggle{
     font-size: 0.8em !important;
     background-color: #6181c7;
@@ -126,7 +118,6 @@ i-btn:hover{
     background-color: #6181c7;
     border-radius: 100px;
 }
-
 /* MODALS! */
 .modal-content{
     background-color: #192a56;
@@ -135,8 +126,24 @@ i-btn:hover{
 .close{
     color: white;
 }
-
 .modal-header, .modal-footer{
     border: none;
+}
+/* SECTIONS */
+.app-section{
+    min-height: 100vh;
+}
+/* SCROLL ROCKER */
+.scroll-rocker{
+    position: absolute;
+    right: 0;
+}
+.scroll-rocker .material-icons{
+    color: rgba(255, 255, 255, 0.3) !important;
+    display: inline-block;
+}
+.scroll-rocker .material-icons.disabled{
+    color: rgba(255, 255, 255, 0.05) !important;
+    display: inline-block;
 }
 

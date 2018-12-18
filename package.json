@@ -1,8 +1,8 @@
 {
   "name": "hagamos-numeros-react",
   "version": "0.1.0",
-  "private": false,
-  "homepage": "https://furball018.github.io/",
+  "private": true,
+  "homepage": "https://furball018.github.io/hagamos-numeros-react",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "gh-pages-deploy": "^0.5.0",

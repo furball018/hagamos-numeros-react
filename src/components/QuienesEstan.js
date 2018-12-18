@@ -1,10 +1,13 @@
 import React from 'react';
+import ScrollRocker from './ScrollRocker';
+
 
 class QuienesEstan extends React.Component {
     render() {
         return(
-            <div className="container quienes-estan">
-                <h2 className="text-center mt-4">Quiénes están?</h2>
+            <div className="container quienes-estan app-section">
+            <ScrollRocker upAnchor={this.props.upAnchor} downAnchor={this.props.downAnchor}/>
+                <h2 className="mt-4">Quiénes están?</h2>
                 <div className="row">
                     <div className="col">
                         <div className="row pr-4 pl-4 list-titles">
