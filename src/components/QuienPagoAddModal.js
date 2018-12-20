@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 
 class QuienPagoAddModal extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            name: '',
-            type: '',
-            payed: ''
-        }
 
-        this.onAddPayPerson = this.onAddPayPerson.bind(this);
+    //change this crap to use refs and delete state here
+    state = {
+        name: '',
+        type: '',
+        payed: ''
     }
 
-    onAddPayPerson(){
+    onAddPayPerson= () => {
         var newPayPerson = {
             name: this._nameInput.value,
             type: this._typeInput.value,

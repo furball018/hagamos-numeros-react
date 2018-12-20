@@ -3,19 +3,15 @@ import FlipMove from 'react-flip-move';
 import ScrollRocker from './ScrollRocker';
 
 class QuienPago extends Component {
-    constructor(props){
-        super(props);
-        this.delete = this.delete.bind(this);
-    }
 
-    delete(k){
+    delete = k => {
         this.props.onRemovePayPerson(k);
     }
 
     render() {
 
         const payPeopleList = this.props.payPeople.map((person) =>
-            <li className="list-group-item pt-1 pb-1" key={person.key}>
+            <li className="list-group-item list-group-item-rounded pt-1 pb-1" key={person.key}>
                 <div className="row">
                     <div className="col-4 pl-2 pr-2">
                         <p className="mb-0">{person.name}</p>
@@ -49,23 +45,25 @@ class QuienPago extends Component {
                         </div>
                         <ul className="list-group">
                         <FlipMove
-                        duration={300}
+                        duration={150}
                         easing="ease-in-out"
-                        delay={100}
+                        delay={200}
                         enterAnimation='fade'
-                        staggerDurationBy={100}>
+                        staggerDurationBy={200}>
                             {payPeopleList}
-                            <li className="list-group-item text-right pt-1 pb-1" key={0}>Total <span className="currency currency-total ml-2">${total}</span></li>
+                            <li className="list-group-item list-group-item-rounded text-right pt-1 pb-1" key={0}>Total <span className="currency currency-total ml-2">${total}</span></li>
+                            <li className="restart-li">
+                                <div className="row">
+                                    <div className="col">
+                                        <button className="btn btn-primary mt-2" data-toggle="modal" data-target="#AddPayPerson">
+                                            <i className="material-icons align-middle">add_circle_outline</i>
+                                            Agregar
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
                         </FlipMove>
                         </ul>
-                        <div className="row">
-                            <div className="col">
-                                <button className="btn btn-primary mt-2" data-toggle="modal" data-target="#AddPayPerson">
-                                    <i className="material-icons align-middle">add_circle_outline</i>
-                                    Agregar
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

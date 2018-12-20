@@ -10,12 +10,12 @@ input[type=number] {
 }
 
 /* Cambios al Bootstrap */
-.list-group-item:first-child {
+.list-group-item-rounded:first-child {
     border-top-left-radius: .7rem !important;
     border-top-right-radius: .7rem !important;
     transition: border-radius 1s;
 }
-.list-group-item:last-child {
+.list-group-item-rounded:nth-last-child(2) {
     border-bottom-left-radius: .7rem !important;
     border-bottom-right-radius: .7rem !important;
     transition: border-radius 1s;
@@ -26,6 +26,9 @@ input[type=number] {
     font-size: 1.3em;
     margin-top: 5px !important;
     transition: border-radius 1s;
+}
+.restart-li{
+    list-style: none;
 }
 input{
     background-color: rgba(255, 255, 255, 0.1);

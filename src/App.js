@@ -8,29 +8,23 @@ import QuienPagoAddModal from './components/QuienPagoAddModal';
 import QuienesEstan from './components/QuienesEstan';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-
-    this.state ={
-      payPeople: [],
-      noPayPeople: []
-    }
-
-    this.titleRef = React.createRef();
-    this.quienPagoRef = React.createRef();
-    this.quienesEstanRef = React.createRef();
-
-    this.handleAddPayPerson = this.handleAddPayPerson.bind(this);
-    this.handleRemovePayPerson = this.handleRemovePayPerson.bind(this);
+  state = {
+    payPeople: [],
+    noPayPeople: []
   }
 
-  handleAddPayPerson(person){
+  titleRef = React.createRef();
+  quienPagoRef = React.createRef();
+  quienesEstanRef = React.createRef();
+  
+
+  handleAddPayPerson = person => {
     var pp = this.state.payPeople.slice();
     pp.unshift(person);
     this.setState({payPeople: pp});
   }
 
-  handleRemovePayPerson(key){
+  handleRemovePayPerson = key =>{
     var pp = this.state.payPeople.filter(function(p){
       return (p.key !== key)
     });
