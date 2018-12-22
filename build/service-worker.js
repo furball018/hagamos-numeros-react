@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hagamos-numeros-react/precache-manifest.2fda2c2e618351bf4eadb99b4be4941a.js"
+  "/hagamos-numeros-react/precache-manifest.d7777543b8d28b3510e9e30abaee5cd5.js"
 );
 
 workbox.clientsClaim();
